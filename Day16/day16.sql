@@ -60,5 +60,28 @@ values
 (5001, 1001, '2026-05-11','credit card', 55000.00),
 (5002, 1002, '2026-05-11', 'upi', 200000.00);
 
+select c.customer_name, o.order_id, p.payment_method, p.amount
+from customers c
+inner join orders o
+on  c.customer_id = o.customer_id
+inner join payments p
+on o.order_id = p.order_id;
+
+select c.customer_name, o.order_id
+from customers c
+left join orders o
+on  c.customer_id = o.customer_id;
+
+select c.customer_name, o.order_id
+from customers c
+right join orders o
+on  c.customer_id = o.customer_id;
+
+select a.customer_name as customer1,
+b.customer_name as customer2
+from customers a
+join customers b
+on  a.customer_id < b.customer_id;
+
 
 
